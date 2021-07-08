@@ -1,14 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
-import { Picker } from '@react-native-picker/picker';
-import { FiltersData } from '../Constants';
+import {Picker} from '@react-native-picker/picker';
+import {FiltersData} from '../Constants';
 
 class Filters extends React.Component {
   renderItem(filter) {
     const isActive = this.props.filter === filter.name;
     return (
-      <TouchableOpacity style={[styles.Filter, isActive ? styles.activeFilter : null]} onPress={() => this.props.addFilter(filter.name)}>
-        <Text style={[styles.FilterText, isActive ? styles.activeFilterText : null]}>{filter.name}</Text>
+      <TouchableOpacity
+        style={[styles.Filter, isActive ? styles.activeFilter : null]}
+        onPress={() => this.props.addFilter(filter.name)}>
+        <Text
+          style={[
+            styles.FilterText,
+            isActive ? styles.activeFilterText : null,
+          ]}>
+          {filter.name}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -32,10 +40,19 @@ class Filters extends React.Component {
             dropdownIconColor="#fff"
             mode="dropdown"
             onValueChange={e => this.props.changeOrder(e)}>
-            <Picker.Item style={styles.pickerItem} label="Low to High" value="low" />
-            <Picker.Item style={styles.pickerItem} label="High to Low" value="high" />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Low to High"
+              value="low"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="High to Low"
+              value="high"
+            />
           </Picker>
         </View>
+        <Text>{`${this.props.productCount} Product(s) found`}</Text>
       </View>
     );
   }
@@ -77,7 +94,8 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   orderByWrapper: {
-    marginVertical: 8,
+    marginTop: 8,
+    marginBottom: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

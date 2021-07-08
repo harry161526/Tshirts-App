@@ -24,7 +24,7 @@ const ViewCart = ({cartItems, closeModal, manageItemQuantity}) => {
           <Text style={styles.cartItemQuantity}>{`Quantity : ${item.quantity}`}</Text>
         </View>
         <View style={{flex: 0.25}}>
-          <Text style={styles.cartItemPrice}>{`$ ${item.price * item.quantity}`}</Text>
+          <Text style={styles.cartItemPrice}>{`$ ${(item.price * item.quantity).toFixed(2)}`}</Text>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
               onPress={() => manageItemQuantity('remove', item.id)}>

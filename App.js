@@ -138,6 +138,7 @@ class App extends React.Component {
           </TouchableOpacity>
         </View>
         <Filters
+          productCount={this.state.filterProducts.length}
           addFilter={this.addFilter.bind(this)}
           filter={this.state.filters}
           order={this.state.order}
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
   },
   HeaderSection: {
     width: '100%',
-    height: '8%',
+    height: '7%',
     backgroundColor: '#fff',
     elevation: 5,
     justifyContent: 'flex-end',
